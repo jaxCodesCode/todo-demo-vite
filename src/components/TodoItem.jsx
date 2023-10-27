@@ -4,11 +4,9 @@ import componentStyles from '@/styles/TodoItem.module.scss';
 import { useState, useRef } from 'react';
 import { FaTrash } from "react-icons/fa";
 import { AiFillEdit } from "react-icons/ai";
-import { useTodosContext } from '@/context/TodosContext';
 
 
-const TodoItem = ({ todo }) => {
-  const { handleChange, deleteTodo, editTodo } = useTodosContext()
+const TodoItem = ({ todo, handleChange, deleteTodo, editTodo }) => {
   const [editing, setEditing] = useState(false);
   // const [updateInput, setUpdateInput] = useState(todo.title);
   const editInputRef = useRef(null)
@@ -65,7 +63,10 @@ const TodoItem = ({ todo }) => {
 }
 
 TodoItem.propTypes = {
-  todo: PropTypes.object
+  todo: PropTypes.object, 
+  handleChange: PropTypes.func,
+  deleteTodo: PropTypes.func,
+  editTodo: PropTypes.func
 }
 
 export default TodoItem;
