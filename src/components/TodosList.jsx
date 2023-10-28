@@ -1,27 +1,17 @@
-import PropTypes from 'prop-types';
+import { useTodosStore } from '@/store';
 import TodoItem from './TodoItem';
 
-const TodosList = ({ todos, handleChange, deleteTodo, editTodo }) => {
+const TodosList = () => {
+  const todos = useTodosStore((state) => state.todos);
   return (
     <ul>
       {
         todos.map((todo) => (
-          <TodoItem key={todo.id} 
-            todo={todo} 
-            handleChange={handleChange}
-            deleteTodo={deleteTodo}
-            editTodo={editTodo}/>
+          <TodoItem key={todo.id} todo={todo} /> 
         ))
       }
     </ul>
-  )
-}
-
-TodosList.propTypes = {
-  todos: PropTypes.array,
-  handleChange: PropTypes.func,
-  deleteTodo: PropTypes.func,
-  editTodo: PropTypes.func
+  );
 }
 
 export default TodosList;
