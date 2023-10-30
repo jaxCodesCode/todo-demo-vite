@@ -4,13 +4,16 @@ import componentStyles from '@/styles/TodoItem.module.scss';
 import { useState, useRef } from 'react';
 import { FaTrash } from "react-icons/fa";
 import { AiFillEdit } from "react-icons/ai";
-import { useTodosContext } from '@/context/TodosContext';
+import { useTodosStore } from '@/store';
+import { useAuthStore } from '@/authStore';
 
 
 const TodoItem = ({ todo }) => {
-  const { handleChange, deleteTodo, editTodo } = useTodosContext()
+  const { user } = useAuthStore(); 
   const [editing, setEditing] = useState(false);
-  // const [updateInput, setUpdateInput] = useState(todo.title);
+  const editTodo = useTodosStore(state => state.editTodo);
+  const handleChange = useTodosStore(state => state.handleChange);
+  const deleteTodo = useTodosStore(state => state.deleteTodo);
   const editInputRef = useRef(null)
   const completedStyles = {
     fontStyle: 'italic',
@@ -40,7 +43,7 @@ const TodoItem = ({ todo }) => {
         <input type='checkbox' 
           checked={todo.completed}
           onChange={() => handleChange(todo.id)}/>
-        { !todo.completed && 
+        { user && !todo.completed && 
           <button onClick={handleEditing}>
             <AiFillEdit />
           </button> 
@@ -53,8 +56,6 @@ const TodoItem = ({ todo }) => {
         </span>
       </div>
       <input type='text'
-        // value={updateInput}
-        // onChange={(e) => setUpdateInput(e.target.value)}
         ref={editInputRef}
         defaultValue={todo.title}
         onKeyDown={handleEditComplete}

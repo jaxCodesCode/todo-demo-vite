@@ -1,12 +1,9 @@
+import { useTodosStore } from "@/store";
 import { useState } from "react";
 import { FaPlusCircle } from "react-icons/fa"
 
-import PropTypes from 'prop-types'
-import { useTodosContext } from "@/context/TodosContext";
-
 const InputTodo = () => {
 
-  const { addTodo } = useTodosContext();
   const [title, setTitle] = useState('');
   const [warning, setWarning] = useState('')
 
@@ -14,6 +11,7 @@ const InputTodo = () => {
     setTitle(e.target.value)
   }
 
+  const addTodo = useTodosStore(state => state.addTodo);
   const handleSubmit = (e) => {
     e.preventDefault();
     if (title.trim()) {
@@ -40,10 +38,6 @@ const InputTodo = () => {
       <span className="submit-warning">{warning}</span>
     </>
   )
-}
-
-InputTodo.propTypes = {
-  addTodo: PropTypes.func
 }
 
 export default InputTodo;
