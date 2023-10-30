@@ -17,7 +17,7 @@ const Header = (props) => {
 };
 
 Header.propTypes = {
-  children: PropTypes.array
+  children: PropTypes.object
 }
 
 export default Header;

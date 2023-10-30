@@ -21,7 +21,7 @@ const Navbar = () => {
     navigate('/login');
   }
 
-  const [navbarOpen, setNavbarOpen] = useState('false');
+  const [navbarOpen, setNavbarOpen] = useState(false);
 
   const ref = useRef();
   useEffect(() => {

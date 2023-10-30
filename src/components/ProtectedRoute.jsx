@@ -18,7 +18,7 @@ const ProtectedRoute = ({ children }) => {
 };
 
 ProtectedRoute.propTypes = {
-  children: PropTypes.array
+  children: PropTypes.object
 }
 
 export default ProtectedRoute;

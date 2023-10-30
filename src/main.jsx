@@ -8,7 +8,7 @@ const domContainer = document.getElementById('root');
 const root = ReactDOM.createRoot(domContainer);
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.DEV ? '/' : '/todo-demo-vite/'}>
       <TodoApp />
     </BrowserRouter>
   </React.StrictMode>
