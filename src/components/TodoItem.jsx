@@ -4,8 +4,8 @@ import componentStyles from '@/styles/TodoItem.module.scss';
 import { useState, useRef } from 'react';
 import { FaTrash } from "react-icons/fa";
 import { AiFillEdit } from "react-icons/ai";
-import { useTodosStore } from '@/store';
-import { useAuthStore } from '@/authStore';
+import { useTodosStore } from '@/stores/store';
+import { useAuthStore } from '@/stores/authStore';
 
 
 const TodoItem = ({ todo }) => {

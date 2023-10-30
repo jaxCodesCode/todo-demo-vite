@@ -1,4 +1,4 @@
-import { useTodosStore } from "@/store";
+import { useTodosStore } from "@/stores/store";
 import { useState } from "react";
 import { FaPlusCircle } from "react-icons/fa"
 

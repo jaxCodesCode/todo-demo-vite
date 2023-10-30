@@ -1,7 +1,8 @@
 import { useState } from "react";
 import componentStyles from '@/styles/Login.module.scss'
-import { useAuthStore } from "@/authStore";
+import { useAuthStore } from "@/stores/authStore";
 import { useLocation, useNavigate } from "react-router-dom";
+import Header from "@/components/Header";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -20,7 +21,9 @@ const Login = () => {
 
   return (
     <div>
-      <h1>Login</h1>
+      <Header>
+        <h1>Login</h1>
+      </Header>
       <div className={componentStyles.formWrapper}>
         <form className={componentStyles.form} onSubmit={handleSubmit}>
           <input type='text'

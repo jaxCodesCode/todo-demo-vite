@@ -1,4 +1,4 @@
-import { useAuthStore } from "@/authStore";
+import { useAuthStore } from "@/stores/authStore";
 import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 

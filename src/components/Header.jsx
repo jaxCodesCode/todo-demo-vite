@@ -1,6 +1,7 @@
 import componentStyles from '@/styles/Header.module.scss';
+import PropTypes from 'prop-types';
 
-const Header = () => {
+const Header = (props) => {
   const headerStyle = {
     padding: '20px 0',
     lineHeight: '1.5em',
@@ -10,10 +11,13 @@ const Header = () => {
 
   return (
     <header style={headerStyle} className={componentStyles.header}>
-      <h1>todos</h1>
-      <p>Items will persist in the browser local storage</p>
+      { props.children }
     </header>
-)
+  )
 };
+
+Header.propTypes = {
+  children: PropTypes.array
+}
 
 export default Header;

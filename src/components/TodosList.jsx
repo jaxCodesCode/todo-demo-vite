@@ -1,4 +1,4 @@
-import { useTodosStore } from '@/store';
+import { useTodosStore } from '@/stores/store';
 import TodoItem from './TodoItem';
 
 const TodosList = () => {
