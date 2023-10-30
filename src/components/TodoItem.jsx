@@ -5,9 +5,11 @@ import { useState, useRef } from 'react';
 import { FaTrash } from "react-icons/fa";
 import { AiFillEdit } from "react-icons/ai";
 import { useTodosStore } from '@/store';
+import { useAuthStore } from '@/authStore';
 
 
 const TodoItem = ({ todo }) => {
+  const { user } = useAuthStore(); 
   const [editing, setEditing] = useState(false);
   const editTodo = useTodosStore(state => state.editTodo);
   const handleChange = useTodosStore(state => state.handleChange);
@@ -41,7 +43,7 @@ const TodoItem = ({ todo }) => {
         <input type='checkbox' 
           checked={todo.completed}
           onChange={() => handleChange(todo.id)}/>
-        { !todo.completed && 
+        { user && !todo.completed && 
           <button onClick={handleEditing}>
             <AiFillEdit />
           </button> 
