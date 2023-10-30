@@ -7,6 +7,7 @@ import { fileURLToPath } from 'node:url'
 const _dirname = dirname(fileURLToPath(import.meta.url))
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: '/todo-demo-vite/',
   plugins: [react()],
   resolve: {
     alias: {
